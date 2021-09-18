@@ -38,8 +38,7 @@ def Convert(filename):
         print("ERROR calling on hanger")
 
 def OpenLink():
-    print(img)
-    webbrowser.open(img)
+    webbrowser.open('http://adf.ly/20862123/banner/' + img)
     Step2.config(fg = "#C96C00")
     Step2.config(fg = "#0F151D")
     Step3.config(fg = "#0F151D")
@@ -47,7 +46,7 @@ def OpenLink():
     Openlinkbutton["state"] = DISABLED
 
 def Scriptbotlink():
-    webbrowser.open("https://script-bot.netlify.com")
+    webbrowser.open("https://open.lbry.com/@Script-Bot:6?r=EN9EbSQBuV5vmA9P6m2VkhemRRTegT3C")
 
 if __name__ == "__main__":
 
@@ -113,7 +112,7 @@ if __name__ == "__main__":
     scriptbot.config(image=scriptbotphoto)
     scriptbot.pack(side = TOP)
 
-    Version = Label(Infoframe, text = "Version: 1.1", bg = "#0F151D", fg = "#C96C00")
+    Version = Label(Infoframe, text = "Version: 1.3", bg = "#0F151D", fg = "#C96C00")
     Version.pack(side = TOP)
 
     root.mainloop()
