@@ -1,4 +1,5 @@
 import os, time, webbrowser, requests
+import filetype
 import hanger
 from tkinter import *
 from tkinter import filedialog
@@ -20,16 +21,14 @@ def Selectfile():
         Step2.config(fg = "#C96C00")
 
 def Convert(filename):
-    filedir = os.path.dirname(filename)
-    basefilename = os.path.basename(filename)
-    filetype = filename.split(".")[-1]
+    print("--file--" + filename)
 
-    print("--filedir--" + filedir)
-    print("--basefilename--" + basefilename)
-    print("--filetype--" + filetype)
+    global img
+    hangerClass = hanger.hanger(filename)
+    img = hangerClass.template()
+    img = hangerClass.insert()
 
     try:
-        hanger.creation(basefilename,filetype,filedir,filename)
         Convertstatus.config(text = "STATUS: Converted")
         Step2.config(fg = "#0F151D")
         Step3.config(fg = "#C96C00")
@@ -39,7 +38,8 @@ def Convert(filename):
         print("ERROR calling on hanger")
 
 def OpenLink():
-    hanger.openurl()
+    print(img)
+    webbrowser.open(img)
     Step2.config(fg = "#C96C00")
     Step2.config(fg = "#0F151D")
     Step3.config(fg = "#0F151D")
